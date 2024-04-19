@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://cosmas:22360010s@cluster0.8ehdgpg.mongodb.net/booking"
+}
+
+model Booking {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  litres  String
+  date    String
+  Nid     String
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+  approved Boolean @default(false)
+}
+
+model User {
+  id        String    @id @default(auto()) @db.ObjectId @map("_id")
+  email     String    @unique
+  password  String
+  sessions  Session[]
+}
+
+model Session {
+  id        String   @id @default(auto()) @db.ObjectId @map("_id")
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  token     String   // Add this line
+}
