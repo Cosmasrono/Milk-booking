@@ -5,6 +5,7 @@ export const createSession = async (userId: any) => {
     await prisma.session.create({
       data: {
         userId: userId,
+        token:"",
         expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // Expires in 30 days
       }
     });

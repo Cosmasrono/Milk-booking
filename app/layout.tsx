@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import './globals.css'
+import { Toaster } from 'react-hot-toast';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ul className="flex space-x-4">
               <li>
                 <Link
-                  href="/"
+                  href="/home"
                   className="hover:text-blue-500 transition-colors duration-300"
                 >
                   Home
@@ -40,10 +41,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Users
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/Auth"
+                  className="hover:text-blue-500 transition-colors duration-300"
+                >
+                  sign up
+                </Link>
+              </li>
             </ul>
+            
           </nav>
         </header>
-        <main className="container mx-auto py-8">{children}</main>
+        <main className="container mx-auto py-8">
+        <Toaster position="bottom-center" />
+          {children}</main>
       </body>
     </html>
   );

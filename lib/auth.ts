@@ -1,11 +1,28 @@
-import bcrypt from 'bcryptjs';
+// // auth.ts
+// import axios from 'axios';
+// import { useRouter } from 'next/router';
 
-export const hashPassword = async (password: any) => {
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
-  return hashedPassword;
-};
+// interface LoginData {
+//   email: string;
+//   password: string;
+// }
 
-export const comparePasswords = async (password: any, hashedPassword: any) => {
-  return await bcrypt.compare(password, hashedPassword);
-};
+// export const login = async (loginData: LoginData) => {
+//   const router = useRouter(); // Access the router instance
+
+//   try {
+//     const response = await axios.post('/api/Auth/login', loginData);
+//     const { token } = response.data;
+
+//     // Store the token in localStorage
+//     localStorage.setItem('token', token);
+
+//     // Navigate to the home page
+//     router.push('/Homepage');
+
+//     return token;
+//   } catch (error) {
+//     console.error('Login error:', error);
+//     throw error;
+//   }
+// };

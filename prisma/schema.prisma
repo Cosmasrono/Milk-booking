@@ -19,15 +19,19 @@ model Booking {
 
 model User {
   id        String    @id @default(auto()) @db.ObjectId @map("_id")
+  firstName   String
+  lastName   String
   email     String    @unique
   password  String
-  sessions  Session[]
+ 
+ 
 }
-
-model Session {
-  id        String   @id @default(auto()) @db.ObjectId @map("_id")
-  userId    String   @db.ObjectId
-  user      User     @relation(fields: [userId], references: [id])
-  expiresAt DateTime
-  token     String   // Add this line
+model Admin {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String   @unique
+  password   String
+  firstName  String
+  lastName   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
