@@ -1,9 +1,10 @@
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://cosmas:22360010s@cluster0.8ehdgpg.mongodb.net/booking"
+  url      = env("DATABASE_URL")
 }
 
 model Booking {
