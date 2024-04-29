@@ -138,19 +138,16 @@ const Login = () => {
         )}
       </button>
       <div className="my-6 h-px bg-gray-200" />
-      <p className="text-center text-gray-500 text-sm">
-        &copy; 2024 Our Services. All rights reserved.
-      </p>
+       
       <div className="flex justify-center mt-4">
-        <h5 className="text-center text-gray-500 text-sm">
-          Don't have an account?
+     
           <Link
             className="text-blue-600 ml-2 hover:text-blue-700 hover:underline"
             href="/Auth"
           >
             Register
           </Link>
-        </h5>
+ 
       </div>
     </div>
   );
