@@ -19,20 +19,18 @@ export async function POST(req: Request, res: Response) {
 
     // Extract email and password from request body
     const { email, password } = data;
-    // console.log(email,password)
 
     // Find user by email
     const user = await prisma.user.findUnique({
       where: { email },
       select: {
         id: true,
+       
         email: true,
         password: true,
         
       }, // Optimize query to fetch only necessary fields
     });
-    console.log(user,"user");
-    
 
     // Check if user exists and is verified
     if (!user) {
